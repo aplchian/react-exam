@@ -24,9 +24,7 @@ const Persons = React.createClass({
     }
   },
   componentDidMount(){
-    xhr.get('http://localhost:4000/persons',{
-      json: true
-    }, (err,res,persons) => {
+    this.props.allDocs((err,persons) => {
       if(err) return console.log(err.message)
       this.setState({persons})
     })

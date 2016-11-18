@@ -13,7 +13,7 @@ const Persons = React.createClass({
   handleRemove(e){
     e.preventDefault()
     if(confirm('Are you sure?')){
-      xhr.del('http://localhost:4000/persons/' + this.state.person.id,(err,res,body) => {
+      xhr.del('http://localhost:4000/persons/' + this.state.person.id, (err,res,body) => {
         if(err) return console.log(err.message)
         this.setState({removed: true})
       })
@@ -21,12 +21,16 @@ const Persons = React.createClass({
 
   },
   componentDidMount(){
-    xhr.get('http://localhost:4000/persons/'+this.props.params.id,{
-      json: true
-    }, (err,res,person) => {
+    this.props.get(this.props.params.id,(err,person) => {
       if(err) return console.log(err.message)
       this.setState({person})
     })
+    // xhr.get('http://localhost:4000/persons/'+this.props.params.id,{
+    //   json: true
+    // }, (err,res,person) => {
+    //   if(err) return console.log(err.message)
+    //   this.setState({person})
+    // })
   },
   render(){
     console.log(this.state)
