@@ -22,18 +22,37 @@ const Form = React.createClass({
   },
   handleSubmit(e){
     e.preventDefault()
-    xhr.post('http://localhost:4000/persons/',{
-      json: this.state
-    },(err,res) => {
-      if(err) return console.log(err)
-      this.setState({success: true})
-    })
+    if(this.state.id){
+      xhr.put('http://localhost:4000/persons/' + this.state.id,{
+        json: this.state
+      },(err,res) => {
+        if(err) return console.log(err)
+        this.setState({success: true})
+      })
+    }else {
+      xhr.post('http://localhost:4000/persons/',{
+        json: this.state
+      },(err,res) => {
+        if(err) return console.log(err)
+        this.setState({success: true})
+      })
+    }
+  },
+  componentDidMount(){
+    if(this.props.params.id){
+      xhr.get('http://localhost:4000/persons/' + this.props.params.id,
+      {json: true}, (err,res,person) => {
+        if(err) return console.log(err.message)
+        this.setState(person)
+      })
+    }
   },
   render(){
+    const formState = this.state.id ? 'Edit' : 'New'
     return(
       <div>
         {this.state.success ? <Redirect to="/persons" /> : null}
-        <h1>New Person Form</h1>
+        <h1>{formState} Person</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label style={labelStyle}>First Name</label>

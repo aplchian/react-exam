@@ -22,7 +22,8 @@ const App = React.createClass({
           <Match exactly pattern="/about" component={About} />
           <Match exactly pattern="/persons" component={Persons} />
           <Match exactly pattern="/persons/:id/show" component={Person} />
-        <Match exactly pattern="/persons/new" component={PersonForm} />
+          <Match exactly pattern="/persons/new" component={PersonForm} />
+          <Match pattern="/persons/:id/edit" component={PersonForm} />
           <Miss  component={NoMatch} />
         </div>
     </BrowserRouter>

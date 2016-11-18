@@ -42,6 +42,7 @@ const Persons = React.createClass({
     return(
       <div>
         <h1 {...styles.headerFont}>Persons</h1>
+        <Link to="/persons/new">Add New</Link>
         <ul>
         {this.state.persons.map(listPerson)}
         </ul>
