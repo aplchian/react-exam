@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "glamor": "^2.18.2",
     "react-router": "^4.0.0-alpha.5",
-    "react-scripts": "^0.7.0"
+    "react-scripts": "^0.7.0",
+    "xhr": "^2.2.2"
   }
 }
