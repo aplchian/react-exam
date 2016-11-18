@@ -3,12 +3,6 @@ const {BrowserRouter, Match, Link} = require('react-router')
 const {style} = require('glamor')
 const xhr = require('xhr')
 
-// let styles = style({
-//   color: 'blue',
-//   ':hover': {
-//     color: 'black'
-//   }
-// })
 
 let styles = {
   listFont: style({
@@ -19,9 +13,6 @@ let styles = {
   }),
   headerFont: style({
     color: 'red',
-    ':hover': {
-      color: 'black'
-    }
   })
 }
 
@@ -42,7 +33,11 @@ const Persons = React.createClass({
   },
   render(){
     const listPerson = (person,i) =>
-      <li {...styles.listFont} key={i}> { person.firstName + ' ' + person.lastName } </li>
+      <li {...styles.listFont} key={i}>
+        <Link to={`/persons/${person.id}/show`}>
+          { person.firstName + ' ' + person.lastName }
+        </Link>
+      </li>
 
     return(
       <div>
