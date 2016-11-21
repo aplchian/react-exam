@@ -17,32 +17,33 @@ let styles = {
 }
 
 
-const Persons = React.createClass({
+const Locations = React.createClass({
   getInitialState(){
     return {
-      persons: []
+      locations: []
     }
   },
   componentDidMount(){
-    this.props.allDocs('persons',(err,persons) => {
+    this.props.allDocs('locations',(err,locations) => {
       if(err) return console.log(err.message)
-      this.setState({persons})
+      this.setState({locations})
     })
   },
   render(){
-    const listPerson = (person,i) =>
+    console.log(this.state)
+    const listPerson = (location,i) =>
       <li {...styles.listFont} key={i}>
-        <Link to={`/persons/${person.id}/show`}>
-          { person.firstName + ' ' + person.lastName }
+        <Link to={`/locations/${location.id}/show`}>
+          { location.name }
         </Link>
       </li>
 
     return(
       <div>
-        <h1 {...styles.headerFont}>Persons</h1>
-        <Link to="/persons/new">Add New</Link>
+        <h1 {...styles.headerFont}>Locations</h1>
+        <Link to="/locations/new">Add New</Link>
         <ul>
-        {this.state.persons.map(listPerson)}
+        {this.state.locations.map(listPerson)}
         </ul>
         <Link to="/">Home</Link>
       </div>
@@ -51,4 +52,4 @@ const Persons = React.createClass({
 })
 
 
-module.exports = Persons
+module.exports = Locations

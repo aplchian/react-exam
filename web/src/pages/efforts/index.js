@@ -3,17 +3,17 @@ const {BrowserRouter, Match, Link, Redirect} = require('react-router')
 const {style} = require('glamor')
 const xhr = require('xhr')
 
-const Persons = React.createClass({
+const Efforts = React.createClass({
   getInitialState(){
     return {
-      person: [],
+      effort: [],
       removed: false,
     }
   },
   handleRemove(e){
     e.preventDefault()
     if(confirm('Are you sure?')){
-      xhr.del('http://localhost:4000/persons/' + this.state.person.id, (err,res,body) => {
+      xhr.del('http://localhost:4000/efforts/' + this.state.effort.id, (err,res,body) => {
         if(err) return console.log(err.message)
         this.setState({removed: true})
       })
@@ -21,24 +21,24 @@ const Persons = React.createClass({
 
   },
   componentDidMount(){
-    this.props.get(this.props.params.id,'persons',(err,person) => {
+    this.props.get(this.props.params.id,'efforts',(err,effort) => {
       if(err) return console.log(err.message)
-      this.setState({person})
+      this.setState({effort})
     })
   },
   render(){
     console.log(this.state)
     return(
       <div>
-        {this.state.removed ? <Redirect to="/persons" /> : null}
-        <h1>{`${this.state.person.firstName} ${this.state.person.lastName} `}</h1>
-          <Link to={`/persons/${this.state.person.id}/edit`}>edit</Link>
+        {this.state.removed ? <Redirect to="/efforts" /> : null}
+        <h1>{this.state.effort.Name}</h1>
+          <Link to={`/efforts/${this.state.effort.id}/edit`}>edit</Link>
           <button onClick={this.handleRemove}>remove</button>
-          <Link to="/persons">return</Link>
+          <Link to="/efforts">return</Link>
       </div>
     )
   }
 })
 
 
-module.exports = Persons
+module.exports = Efforts
