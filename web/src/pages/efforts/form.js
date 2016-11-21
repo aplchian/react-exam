@@ -190,14 +190,14 @@ const Form = React.createClass({
               type="text" />
           </div>
           <div>
-            <label style={labelStyle}>Start Date</label>
+            <label style={labelStyle}>Start Date(DD-MM-YYY)</label>
             <input
               onChange={this.handleChange('startdate')}
               value={this.state.form.startdate}
               type="text" />
           </div>
           <div>
-            <label style={labelStyle}>End Date</label>
+            <label style={labelStyle}>End Date(DD-MM-YYY)</label>
             <input
               onChange={this.handleChange('enddate')}
               value={this.state.form.enddate}

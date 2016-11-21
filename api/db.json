@@ -57,62 +57,15 @@
       "id": "1"
     },
     {
+      "Name": "asd",
+      "Description": "sad",
+      "startdate": "sad",
+      "enddate": "sad",
       "team": [
-        "1",
-        "4"
+        "3",
+        "1"
       ],
       "id": "BySZ7AlMg"
-    },
-    {
-      "team": [
-        "1",
-        "5"
-      ],
-      "id": "Hk-CKAgMl"
-    },
-    {
-      "Name": "",
-      "Description": "SAD",
-      "startdate": "ASD",
-      "enddate": "SAD",
-      "phase": "planning",
-      "team": [],
-      "id": "rJl530eGg"
-    },
-    {
-      "team": [],
-      "id": "r1K_11ZGg"
-    },
-    {
-      "team": [],
-      "id": "B1gikJ-Gl"
-    },
-    {
-      "Name": "sdaasdasd",
-      "Description": "sadsadsd",
-      "startdate": "asdsad",
-      "enddate": "sadsad",
-      "phase": "planning",
-      "team": [],
-      "id": "SJRxx1WGg"
-    },
-    {
-      "Description": "asdx",
-      "startdate": "sadZX",
-      "enddate": "sadZX",
-      "team": [
-        "null"
-      ],
-      "id": "ryAAzybzg"
-    },
-    {
-      "Name": "",
-      "Description": "qwd",
-      "startdate": "dqw",
-      "enddate": "dqw",
-      "phase": "planning",
-      "team": [],
-      "id": "r1DeQJWze"
     }
   ],
   "locations": [
